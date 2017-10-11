@@ -10,8 +10,9 @@
     <name>My Resources Plugin Practice Project</name>
 
     <properties>
+        <suiteXmlFile>src/test/resources/checkTask3.xml</suiteXmlFile>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <jdi.version>1.0.71</jdi.version>
+        <jdi.version>1.0.82</jdi.version>
         <allure.version>1.4.23</allure.version>
         <aspectj.version>1.8.5</aspectj.version>
         <driver>chrome</driver>
@@ -94,7 +95,7 @@
             <plugin>
                 <groupId>ru.yandex.qatools.allure</groupId>
                 <artifactId>allure-maven-plugin</artifactId>
-                <version>LATEST</version>
+                <version>2.5</version>
             </plugin>
         </plugins>
     </reporting>
