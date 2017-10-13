@@ -13,7 +13,7 @@
         <suiteXmlFile>src/test/resources/checkTask3.xml</suiteXmlFile>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <jdi.version>1.0.82</jdi.version>
-        <allure.version>1.4.23</allure.version>
+        <allure.version>1.5.2</allure.version>
         <aspectj.version>1.8.5</aspectj.version>
         <driver>chrome</driver>
     </properties>
@@ -51,7 +51,7 @@
                 <version>2.19.1</version>
                 <configuration>
                     <suiteXmlFiles>
-                        <suiteXmlFile>src/test/resources/general.xml</suiteXmlFile>
+                        <suiteXmlFile>src/test/resources/${suiteXmlFile}</suiteXmlFile>
                     </suiteXmlFiles>
                     <testFailureIgnore>true</testFailureIgnore>
                     <argLine>

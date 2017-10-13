@@ -24,7 +24,7 @@ public class DatesFunctionalityTest extends SimpleTestsInit {
         header.open(SERVICE, DATES);
     }
 
-    @Test(dataProvider = "dragAndDrop", dataProviderClass = DataProviders.class)
+    @Test(dataProvider = "dragAndDrop", dataProviderClass = DataProviders.class, groups = {"regression", "dp"})
     public void checkDF(int leftPos, int rightPos) {
 
         datesPage.datesForm.setHandlesPosition(leftPos,rightPos);

@@ -10,7 +10,7 @@ import static efremov.JDISite.*;
 
 public class LoginTest extends SimpleTestsInit {
 
-    @Test(dataProvider = "testLoginData", dataProviderClass = DataProviders.class)
+    @Test(dataProvider = "testLoginData", dataProviderClass = DataProviders.class, groups = "smoke")
     public void loginTest(User user) {
 
         indexPage.checkTitleType = CONTAINS;

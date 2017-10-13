@@ -1,8 +1,14 @@
 <?xml version="1.0" encoding="WINDOWS-1251"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Suite3" parallel="methods" verbose="1">
-    <test name="CheckTask3" >
+    <test name="DEP" >
+        <groups>
+            <run>
+                <include name="dep"/>
+            </run>
+        </groups>
         <classes>
+            <class name="diffElemPageTests.diffElementsMainTest"/>
             <class name="testsFromSelenide.Task3.DifferentElementsFunctionalityTest"/>
         </classes>
     </test>

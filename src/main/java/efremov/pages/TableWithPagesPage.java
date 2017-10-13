@@ -8,7 +8,7 @@ import com.epam.jdi.uitests.web.selenium.elements.complex.Elements;
 import com.epam.jdi.uitests.web.selenium.elements.complex.table.Table;
 import com.epam.jdi.uitests.web.selenium.elements.composite.WebPage;
 import com.epam.jdi.uitests.web.selenium.elements.pageobjects.annotations.JPage;
-import efremov.data.enums.TableWithPagesPage.EntriesNumbers;
+import efremov.data.enums.tableWithPagesPage.EntriesNumbers;
 import org.openqa.selenium.support.FindBy;
 
 @JPage(url = "/page7.htm", title = "Table with pages")

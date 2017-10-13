@@ -1,6 +1,7 @@
 package testsFromSelenide.Task1;
 
 
+import efremov.entities.ContactData;
 import efremov.entities.User;
 import initialization.SimpleTestsInit;
 import com.epam.web.matcher.testng.Assert;
@@ -12,7 +13,7 @@ import static efremov.data.enums.headerAndLeftSection.HeaderMenuElements.*;
 
 public class LoginAndFillContactFormTest extends SimpleTestsInit {
 
-    @Test
+    @Test(groups = "regression")
     public void loginAndFillContactForm() {
         indexPage.checkTitleType = CONTAINS;
         indexPage.shouldBeOpened();
@@ -20,8 +21,7 @@ public class LoginAndFillContactFormTest extends SimpleTestsInit {
         header.open(CONTACT_FORM);
         contactFormPage.checkTitleType = CONTAINS;
         contactFormPage.shouldBeOpened();
-        contactFormPage.contactForm.submit(new User());
+        contactFormPage.contactForm.submit(new ContactData());
         Assert.assertTrue(logsSection.logs.get(0).getText().contains("submit")); // not good??
-        //checkLogs();
     }
 }

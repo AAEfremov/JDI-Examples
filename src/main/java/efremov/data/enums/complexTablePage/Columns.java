@@ -1,4 +1,4 @@
-package efremov.data.enums.ComplexTablePage;
+package efremov.data.enums.complexTablePage;
 
 public enum Columns {
 

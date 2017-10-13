@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="WINDOWS-1251"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Suite3" parallel="methods" verbose="1">
+    <test name="DP" >
+        <groups>
+            <run>
+                <include name="dp"/>
+            </run>
+        </groups>
+        <classes>
+            <class name="datesPageTests.OptionalMandatoryTest"/>
+            <class name="testsFromSelenide.Task3.DatesFunctionalityTest"/>
+        </classes>
+    </test>
+</suite>

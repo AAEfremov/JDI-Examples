@@ -1,11 +1,17 @@
 package efremov.data;
 
+import efremov.entities.ContactData;
 import efremov.entities.DatesData;
 import efremov.entities.User;
 import org.testng.annotations.DataProvider;
 
+import static efremov.data.enums.Numbers.*;
+import static efremov.data.enums.contactFormPage.ContactFormData.*;
 import static efremov.data.enums.datesPage.DatesInfo.*;
 import static efremov.data.enums.datesPage.StatusesForFields.*;
+import static efremov.data.enums.diffElementsPage.CheckboxLabels.*;
+import static efremov.data.enums.diffElementsPage.ColorsOptions.*;
+import static efremov.data.enums.diffElementsPage.RadioLabels.*;
 import static efremov.data.enums.indexPage.UsersCredentials.*;
 
 public class DataProviders {
@@ -20,7 +26,7 @@ public class DataProviders {
         };
     }
 
-    /*@DataProvider(name = "fillUserData")
+    /*@DataProvider(firstName = "fillUserData")
     public static Object[][] fillUserData() {
         return new Object[][]{
                 {new User()}
@@ -44,6 +50,7 @@ public class DataProviders {
         };
     }
 
+    //Testing Dates Page functionality
     @DataProvider(name = "dragAndDrop")
     public Object[][] dragAndDrop(){
         return new Object[][]{
@@ -54,6 +61,25 @@ public class DataProviders {
         };
     }
 
+    @DataProvider(name = "diffElementsProvider", parallel = true)
+    public Object[][] diffElementsData(){
+        return new Object[][]{
+                {WATER, GOLD, RED},
+                {EARTH, BRONZE, GREEN},
+                {WIND, BRONZE, YELLOW},
+                {FIRE, SILVER, BLUE}
+        };
+    }
+
+    @DataProvider(name = "contactFormProvider", parallel = true)
+    public Object[][] contactFormData(){
+        return new Object[][]{
+                {new ContactData(FIRST_NAME.getValue(), LAST_NAME.getValue(), DESCRIPTION.getValue(), ONE.getValue(), FOUR.getValue())},
+                {new ContactData(FIRST_NAME.getValue(), LAST_NAME.getValue(), DESCRIPTION.getValue(), THREE.getValue(), "")},
+                {new ContactData(FIRST_NAME.getValue(), LAST_NAME.getValue(), "", "", SIX.getValue())},
+                {new ContactData(FIRST_NAME.getValue(), LAST_NAME.getValue(), DESCRIPTION.getValue(), "", "")}
+        };
+    }
 
 
 }

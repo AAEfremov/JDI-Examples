@@ -1,4 +1,4 @@
-package efremov.data.enums.TableWithPagesPage;
+package efremov.data.enums.tableWithPagesPage;
 
 public enum EntriesNumbers {
 

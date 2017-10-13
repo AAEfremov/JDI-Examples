@@ -7,7 +7,7 @@ import com.epam.jdi.uitests.web.selenium.elements.complex.table.Table;
 import com.epam.jdi.uitests.web.selenium.elements.composite.WebPage;
 import com.epam.jdi.uitests.web.selenium.elements.pageobjects.annotations.JFindBy;
 import com.epam.jdi.uitests.web.selenium.elements.pageobjects.annotations.JPage;
-import efremov.data.enums.ComplexTablePage.Columns;
+import efremov.data.enums.complexTablePage.Columns;
 import org.openqa.selenium.support.FindBy;
 
 @JPage(url = "/page5.htm", title = "Complex Table")

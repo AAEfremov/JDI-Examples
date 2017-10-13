@@ -11,8 +11,6 @@ public class User extends DataClass {
     public Boolean status = true;
     public String userName = "PITER CHAILOVSKII";
     public String loginFailed = "* Login Faild";
-    public String firstName = "Aleksandr";
-    public String lastName = "Efremov";
 
     public User(){}
 
