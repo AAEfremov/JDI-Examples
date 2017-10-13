@@ -20,4 +20,13 @@ public enum CheckboxLabels {
     public String getLabel() {
         return label;
     }
+
+    public String getTrueStatus() {
+        return "true";
+    }
+
+    public String getFalseStatus() {
+        return "false";
+    }
+
 }

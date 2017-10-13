@@ -12,12 +12,5 @@ import org.openqa.selenium.support.FindBy;
 public class ContactFormPage extends WebPage {
 
     public ContactForm contactForm;
-
-
-    public void fillContactForm() {
-
-        contactForm.submit(new User(), "Submit");
-    }
-
 }
 

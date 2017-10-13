@@ -8,7 +8,17 @@ import com.epam.commons.DataClass;
 public class User extends DataClass {
     public String name = "epam";
     public String password = "1234";
+    public Boolean status = true;
     public String userName = "PITER CHAILOVSKII";
+    public String loginFailed = "* Login Faild";
     public String firstName = "Aleksandr";
     public String lastName = "Efremov";
+
+    public User(){}
+
+    public User(String name, String password, Boolean status) {
+        this.name = name;
+        this.password = password;
+        this.status = status;
+    }
 }

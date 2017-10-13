@@ -13,6 +13,7 @@ import efremov.sections.LeftSection;
 import efremov.sections.LogsSection;
 import efremov.sections.ResultSection;
 import org.openqa.selenium.support.FindBy;
+import ru.yandex.qatools.allure.annotations.Step;
 
 @JSite(domain = "https://epam.github.io/JDI/")
 public class JDISite extends WebSite{
@@ -35,17 +36,17 @@ public class JDISite extends WebSite{
     @FindBy(css = ".fa-user")
     public static Label profilePhoto;
 
+    //static private User user = new User();
 
 
-    public static void login(User user) {
+
+    @Step("Login to the site")
+    public static void login() {
+        User user = new User();
         profilePhoto.click();
         loginForm.loginAs(user);
-    }
-
-    public static void checkUsername(User user) {
         Assert.assertEquals(loginForm.userName.getText(), user.userName);
     }
-
 
     /*public static void checkLogs() {
         Assert.assertTrue(logsSection.checkLogs());

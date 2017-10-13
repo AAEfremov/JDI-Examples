@@ -7,40 +7,27 @@ import java.util.List;
 
 public class DatesData extends DataClass {
 
-    public String firstName = "Alex";
-    public String lastName = "Efremov";
-    public String description = "This one of meny tests in my life...";
-    public String from = "10";
-    public String to = "50";
-    public String time = "10:00 AM";
-    //public List<String> range1 = new ArrayList<>();
+    public String firstName = null;
+    public String lastName = null;
+    public String description = null;
+    public String date = null;
+    public String time = null;
+    public Range range1 = null;
+    public Range range2 = null;
 
-    //public DatesData() {}
-
-    /*public DatesData(String firstName, String lastName, String from, String to) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.from = from;
-        this.to = to;
-        //this.range1.add(from);
-        //this.range1.add(to);
-    }*/
-
-    /*public DatesData(String description, String time) {
-        this.description = description;
-        this.time = time;
-    }*/
-
-    /*public DatesData(String firstName, String lastName, String description, String time, String from, String to) {
+    public DatesData(String firstName, String lastName, String description, String date, String time, Range range1, Range range2) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.description = description;
+        this.date = date;
         this.time = time;
-        this.from = from;
-        this.to = to;
-        //this.range1.add(from);
-        //this.range1.add(to);
-    }*/
+        this.range1 = range1;
+        this.range2 = range2;
+    }
+
+    public DatesData() {
+
+    }
 
 
 }

@@ -3,7 +3,7 @@
 <suite name="Suite3" parallel="methods" verbose="1">
     <test name="CheckTask3" >
         <classes>
-            <class name="Homeworks.Task3.CheckDifferentElementsFunctionality"/>
+            <class name="testsFromSelenide.Task3.DifferentElementsFunctionalityTest"/>
         </classes>
     </test>
 </suite>

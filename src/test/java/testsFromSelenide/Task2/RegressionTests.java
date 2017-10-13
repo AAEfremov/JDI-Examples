@@ -1,6 +1,6 @@
-package Homeworks.Task2;
+package testsFromSelenide.Task2;
 
-import Homeworks.SimpleTestsInit;
+import initialization.SimpleTestsInit;
 import org.testng.annotations.Test;
 import static com.epam.jdi.uitests.core.interfaces.complex.interfaces.CheckPageTypes.CONTAINS;
 import static efremov.JDISite.*;
