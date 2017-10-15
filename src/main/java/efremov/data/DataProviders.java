@@ -6,7 +6,7 @@ import efremov.entities.User;
 import org.testng.annotations.DataProvider;
 
 import static efremov.data.enums.Numbers.*;
-import static efremov.data.enums.PageTitles.*;
+import static efremov.data.enums.Pages.*;
 import static efremov.data.enums.contactFormPage.ContactFormData.*;
 import static efremov.data.enums.datesPage.DatesInfo.*;
 import static efremov.data.enums.datesPage.StatusesForFields.*;
@@ -96,6 +96,19 @@ public class DataProviders {
                 {new ContactData(FIRST_NAME.getValue(), LAST_NAME.getValue(), DESCRIPTION.getValue(), FIVE.getValue(), "")},
                 {new ContactData(FIRST_NAME.getValue(), LAST_NAME.getValue(), "", "", SIX.getValue())},
                 {new ContactData(FIRST_NAME.getValue(), LAST_NAME.getValue(), DESCRIPTION.getValue(), "", "")}
+        };
+    }
+
+    @DataProvider(name = "pagination", parallel = true)
+    public Object[][] pagination() {
+        return new Object[][]{
+                {SUPPORT_PAGE, CONTACT_FORM_PAGE, "prev"},
+                {COMPLEX_TABLE_PAGE, DATES_PAGE, "prev"},
+                {TABLE_WITH_PAGES_PAGE, SIMPLE_TABLE_PAGE, "prev"},
+                {DATES_PAGE, COMPLEX_TABLE_PAGE, "next"},
+                {SIMPLE_TABLE_PAGE, TABLE_WITH_PAGES_PAGE, "next"},
+                {DIFFERENT_ELEMENTS_PAGE, METALS_AND_COLORS_PAGE, "next"}
+
         };
     }
 

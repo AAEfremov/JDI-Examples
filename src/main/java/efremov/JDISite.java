@@ -8,10 +8,7 @@ import com.epam.web.matcher.testng.Assert;
 import efremov.entities.User;
 import efremov.forms.LoginForm;
 import efremov.pages.*;
-import efremov.sections.Header;
-import efremov.sections.LeftSection;
-import efremov.sections.LogsSection;
-import efremov.sections.ResultSection;
+import efremov.sections.*;
 import org.openqa.selenium.support.FindBy;
 import ru.yandex.qatools.allure.annotations.Step;
 
@@ -33,6 +30,7 @@ public class JDISite extends WebSite{
     public static LeftSection leftSection;
     public static LogsSection logsSection;
     public static ResultSection resultSection;
+    public static Paginator paginator;
 
     public static LoginForm loginForm;
     //public static ContactForm contactForm;
