@@ -8,7 +8,8 @@ public enum RadioLabels {
     GOLD("Gold"),
     SILVER("Silver"),
     BRONZE("Bronze"),
-    SELEN("Selen");
+    SELEN("Selen"),
+    METAL("metal");
 
 
     private String label;
@@ -22,6 +23,6 @@ public enum RadioLabels {
     }
 
     public String getMetalTag() {
-        return "metal";
+        return METAL.getLabel();
     }
 }

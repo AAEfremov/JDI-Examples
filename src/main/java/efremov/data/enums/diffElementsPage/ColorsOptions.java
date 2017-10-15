@@ -8,7 +8,8 @@ public enum ColorsOptions {
     RED("Red"),
     GREEN("Green"),
     BLUE("Blue"),
-    YELLOW("Yellow");
+    YELLOW("Yellow"),
+    COLORS("Colors");
 
     private String color;
 
@@ -21,6 +22,6 @@ public enum ColorsOptions {
     }
 
     public String getColorTag() {
-        return "Colors";
+        return COLORS.getColor();
     }
 }

@@ -10,10 +10,10 @@ import com.epam.jdi.uitests.web.selenium.elements.pageobjects.annotations.JPage;
 import efremov.data.enums.diffElementsPage.CheckboxLabels;
 import efremov.data.enums.diffElementsPage.ColorsOptions;
 import efremov.data.enums.diffElementsPage.RadioLabels;
-import efremov.sections.LogsSection;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.FindBy;
 import org.testng.Assert;
+import ru.yandex.qatools.allure.annotations.Step;
 
 import java.util.List;
 
@@ -40,27 +40,44 @@ public class DiffElementsPage extends WebPage {
     @FindBy(css = "[value='Button']")
     public Button button;
 
-    public void selectAndCheckCheckbox(CheckboxLabels label) {
-
+    @Step("Select checkbox")
+    public void selectCheckbox(CheckboxLabels label) {
         checkboxes.check(label.getLabel());
+    }
+
+    @Step("Check that checkbox has been selected")
+    public void checkCheckboxSelected(CheckboxLabels label) {
         Assert.assertTrue(checkboxes.getWebElement(label.getLabel()).findElement(new By.ByCssSelector("input")).isSelected());
     }
 
-    public void unselectAndCheckCheckbox(CheckboxLabels label) {
-
+    @Step("Unselect checkbox")
+    public void unselectCheckbox(CheckboxLabels label) {
         checkboxes.check(label.getLabel());
+    }
+
+    @Step("Check that checkbox has been unselected")
+    public void checkCheckboxUnselected(CheckboxLabels label) {
         Assert.assertFalse(checkboxes.getWebElement(label.getLabel()).findElement(new By.ByCssSelector("input")).isSelected());
     }
 
-    public void selectAndCheckRadio(RadioLabels label) {
-
+    @Step("Select radio")
+    public void selectRadio(RadioLabels label) {
         radios.select(label.getLabel());
+    }
+
+    @Step("Check that radio has been selected")
+    public void checkRadioSelected(RadioLabels label) {
         Assert.assertTrue(radios.getWebElement(label.getLabel()).findElement(new By.ByCssSelector("input")).isSelected());
     }
 
-    public void selectAndCheckColor(ColorsOptions color) {
+    @Step("Select color")
+    public void selectColor(ColorsOptions color) {
         colorsDropdownSelector.click();
         colorsDropdownSelector.select(color.getColor());
+    }
+
+    @Step("Check that color has been selected")
+    public void checkColorSelected(ColorsOptions color) {
         Assert.assertTrue(colorsDropdownSelector.isSelected(color.getColor()));
     }
 

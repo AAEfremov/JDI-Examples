@@ -5,12 +5,13 @@ import efremov.entities.DatesData;
 import initialization.SimpleTestsInit;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+import ru.yandex.qatools.allure.annotations.Step;
 
 import static efremov.JDISite.*;
 
-
 public class OptionalMandatoryTest extends SimpleTestsInit {
 
+    @Step("Open Index Page and then Dates Page")
     @BeforeMethod(alwaysRun = true)
     public void openNeedPage() {
         indexPage.open();
@@ -18,6 +19,7 @@ public class OptionalMandatoryTest extends SimpleTestsInit {
         datesPage.open();
     }
 
+    @Step("Check all/mandatory/optional fields of Dates Page")
     @Test(dataProvider = "testDatesData", dataProviderClass = DataProviders.class, groups = "dp")
     public void mandatoryOptionalTest(DatesData datesData, String status, Boolean submit) {
 
@@ -25,8 +27,7 @@ public class OptionalMandatoryTest extends SimpleTestsInit {
             case "true":
                 switch (status) {
                     case "all":
-                        datesPage.datesForm.fill(datesData);
-                        datesPage.datesForm.submit.click();
+                        datesPage.datesForm.submit(datesData);
                         datesPage.datesForm.checkAll(datesData, resultSection);
                         break;
                     case "mandatory":

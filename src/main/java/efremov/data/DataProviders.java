@@ -1,6 +1,6 @@
 package efremov.data;
 
-import efremov.entities.ContactData;
+import efremov.entities.ContactFormData;
 import efremov.entities.DatesData;
 import efremov.entities.User;
 import org.testng.annotations.DataProvider;
@@ -92,10 +92,10 @@ public class DataProviders {
     @DataProvider(name = "contactFormProvider", parallel = true)
     public Object[][] contactFormData(){
         return new Object[][]{
-                {new ContactData(FIRST_NAME.getValue(), LAST_NAME.getValue(), DESCRIPTION.getValue(), THREE.getValue(), FOUR.getValue())},
-                {new ContactData(FIRST_NAME.getValue(), LAST_NAME.getValue(), DESCRIPTION.getValue(), FIVE.getValue(), "")},
-                {new ContactData(FIRST_NAME.getValue(), LAST_NAME.getValue(), "", "", SIX.getValue())},
-                {new ContactData(FIRST_NAME.getValue(), LAST_NAME.getValue(), DESCRIPTION.getValue(), "", "")}
+                {new ContactFormData(FIRST_NAME.getValue(), LAST_NAME.getValue(), DESCRIPTION.getValue(), THREE.getValue(), FOUR.getValue())},
+                {new ContactFormData(FIRST_NAME.getValue(), LAST_NAME.getValue(), DESCRIPTION.getValue(), FIVE.getValue(), "")},
+                {new ContactFormData(FIRST_NAME.getValue(), LAST_NAME.getValue(), "", "", SIX.getValue())},
+                {new ContactFormData(FIRST_NAME.getValue(), LAST_NAME.getValue(), DESCRIPTION.getValue(), "", "")}
         };
     }
 

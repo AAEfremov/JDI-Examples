@@ -6,16 +6,15 @@ import com.epam.jdi.uitests.web.selenium.elements.common.TextField;
 import com.epam.jdi.uitests.web.selenium.elements.complex.RadioButtons;
 import com.epam.jdi.uitests.web.selenium.elements.composite.Form;
 import com.epam.jdi.uitests.web.selenium.elements.pageobjects.annotations.JFindBy;
-import com.epam.web.matcher.testng.Assert;
 import efremov.data.enums.Numbers;
-import efremov.entities.ContactData;
-import efremov.sections.ResultSection;
+import efremov.entities.ContactFormData;
 import org.openqa.selenium.support.FindBy;
+import ru.yandex.qatools.allure.annotations.Step;
 
 import static efremov.JDISite.resultSection;
 import static org.testng.Assert.*;
 
-public class ContactForm extends Form<ContactData> {
+public class ContactForm extends Form<ContactFormData> {
 
     @FindBy(id="Name")
     public TextField firstName;
@@ -34,8 +33,9 @@ public class ContactForm extends Form<ContactData> {
     @FindBy(css = ".horizontal-group label")
     public RadioButtons<Numbers> numbers;
 
+    @Step("Enter data to the Contact Form")
     @Override
-    public void submit(ContactData data){
+    public void submit(ContactFormData data){
         if (!data.oddNumber.isEmpty()){
             numbers.select(data.oddNumber);
         }
@@ -45,6 +45,7 @@ public class ContactForm extends Form<ContactData> {
         super.submit(data);
     }
 
+    @Step("Count sum from radio elements")
     public int takeSum(String oddNumber, String evenNumber) {
 
         switch (oddNumber) {
@@ -61,13 +62,13 @@ public class ContactForm extends Form<ContactData> {
         }
     }
 
-
-    public void checkResults(ContactData contactData, int sum) {
+    @Step("check Result Section")
+    public void checkResults(ContactFormData contactFormData, int sum) {
         assertTrue(resultSection.summary.getText().contains(String.valueOf(sum)));
-        assertTrue(resultSection.firstName.getText().contains(String.valueOf(contactData.firstName)));
-        assertTrue(resultSection.lastName.getText().contains(String.valueOf(contactData.lastName)));
-        if (!contactData.description.isEmpty()) {
-            assertTrue(resultSection.description.getText().contains(String.valueOf(contactData.description)));
+        assertTrue(resultSection.firstName.getText().contains(String.valueOf(contactFormData.firstName)));
+        assertTrue(resultSection.lastName.getText().contains(String.valueOf(contactFormData.lastName)));
+        if (!contactFormData.description.isEmpty()) {
+            assertTrue(resultSection.description.getText().contains(String.valueOf(contactFormData.description)));
         }
     }
 }

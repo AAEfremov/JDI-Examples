@@ -11,7 +11,4 @@ public class LogsSection extends Section {
     @FindBy(css = ".panel-body-list.logs>li")
     public Elements<Label> logs;
 
-    /*@FindBy(css = ".panel-body-list.results>li")
-    public Elements<Label> results;*/
-
 }

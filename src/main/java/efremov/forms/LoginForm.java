@@ -8,6 +8,7 @@ import com.epam.jdi.uitests.web.selenium.elements.composite.Form;
 import com.epam.web.matcher.testng.Assert;
 import efremov.entities.User;
 import org.openqa.selenium.support.FindBy;
+import ru.yandex.qatools.allure.annotations.Step;
 
 /**
  * Created by Roman_Iovlev on 10/22/2015.
@@ -27,11 +28,13 @@ public class LoginForm extends Form<User> {
     @FindBy(css = ".login-txt")
     public Text loginFailed;
 
+    @Step("Check username")
     public void checkUserName(User user) {
         Assert.assertEquals(userName.getText(), user.userName);
     }
 
 
+    @Step("Check that login has been failed")
     public void checkLoginFailed(User user) {
         Assert.areEquals(loginFailed.getText(), user.loginFailed);
     }

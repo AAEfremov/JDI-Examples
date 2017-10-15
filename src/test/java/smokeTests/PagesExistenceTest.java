@@ -7,10 +7,13 @@ import efremov.data.enums.headerAndLeftSection.HeaderMenuElements;
 import initialization.SimpleTestsInit;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+import ru.yandex.qatools.allure.annotations.Step;
+
 import static efremov.JDISite.*;
 
 public class PagesExistenceTest extends SimpleTestsInit{
 
+    @Step("Open Index Page and login")
     @BeforeMethod(alwaysRun = true)
     public void openIndexPage() {
         indexPage.open();
@@ -18,6 +21,7 @@ public class PagesExistenceTest extends SimpleTestsInit{
     }
 
 
+    @Step("Open verified page and check its title")
     @Test(dataProvider = "pages", dataProviderClass = DataProviders.class, groups = "smoke")
     public void pagesExistTest(String title, HeaderMenuElements... page) {
         header.open(page);

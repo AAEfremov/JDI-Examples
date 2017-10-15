@@ -17,10 +17,10 @@ public class TableWithPagesPage extends WebPage {
     @FindBy(css = ".support-title")
     public Label supportTitle;
 
-    @FindBy(css = "select.uui-form-element")
+    @FindBy(css = "select.uui-form-label")
     public Dropdown<EntriesNumbers> entriesNumbers;
 
-    @FindBy(css = "label>input.uui-form-element")
+    @FindBy(css = "label>input.uui-form-label")
     public TextField search;
 
     @FindBy(css = ".dataTable.no-footer")

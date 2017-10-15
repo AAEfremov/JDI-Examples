@@ -7,11 +7,11 @@ import java.util.List;
 
 public class DatesData extends DataClass {
 
-    public String firstName = null;
-    public String lastName = null;
-    public String description = null;
-    public String date = null;
-    public String time = null;
+    public String firstName = "";
+    public String lastName = "";
+    public String description = "";
+    public String date = "";
+    public String time = "";
     public Range range1 = null;
     public Range range2 = null;
 

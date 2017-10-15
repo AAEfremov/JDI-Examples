@@ -4,17 +4,25 @@ import com.epam.jdi.uitests.web.selenium.elements.composite.WebPage;
 import efremov.data.DataProviders;
 import efremov.data.enums.Pages;
 import initialization.SimpleTestsInit;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+import ru.yandex.qatools.allure.annotations.Step;
 
 import static efremov.JDISite.*;
 import static org.testng.Assert.*;
 
 public class PrevNextTest extends SimpleTestsInit {
 
-    @Test(dataProvider = "pagination", dataProviderClass = DataProviders.class, groups = "pagination")
-    public void prevNextTest(Pages current, Pages checking, String direction) {
+    @Step("Open Index Page")
+    @BeforeMethod(alwaysRun = true)
+    public void openPage() {
         indexPage.open();
         login();
+    }
+
+    @Step("Check paginator previous/next button work")
+    @Test(dataProvider = "pagination", dataProviderClass = DataProviders.class, groups = "pagination")
+    public void prevNextTest(Pages current, Pages checking, String direction) {
         switch (current.getPageNumber()) {
             case 1: contactFormPage.open();
                 break;

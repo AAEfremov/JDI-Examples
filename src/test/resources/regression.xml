@@ -9,6 +9,7 @@
         </groups>
         <packages>
             <package name="testsFromSelenide"/>
+            <package name="smokeRegressionTests"/>
         </packages>
     </test>
 </suite>

@@ -12,6 +12,7 @@ import com.epam.web.matcher.testng.Assert;
 import efremov.entities.DatesData;
 import efremov.sections.ResultSection;
 import org.openqa.selenium.support.FindBy;
+import ru.yandex.qatools.allure.annotations.Step;
 
 import static com.epam.jdi.uitests.core.interfaces.complex.FormFilters.ALL;
 import static com.epam.jdi.uitests.core.interfaces.complex.FormFilters.MANDATORY;
@@ -35,14 +36,12 @@ public class DatesForm extends Form<DatesData> {
     public DatePicker date;
 
     @JFindBy(id = "timepicker")
-    public DatePicker time;  //There is no TimePicker type
+    public DatePicker time;
 
     @FindBy(css = ".thumbnail>span")
     public RFileInput imageInput;
 
-    /*@Mandatory
-    @FindBy(css = ".range-range1.overflow>input")
-    public Elements<TextField> range1;*/
+    @Mandatory
     @FindBy(css = ".range-from>input")
     public Elements<TextField> range1;
 
@@ -64,6 +63,7 @@ public class DatesForm extends Form<DatesData> {
         super.filter(filter);
     }
 
+    @Step("Fill and submit Dates data")
     @Override
     public void submit(DatesData datesData){
         super.fill(datesData);
@@ -80,6 +80,7 @@ public class DatesForm extends Form<DatesData> {
         submit.click();
     }
 
+    @Step("Fill Dates data without submitting")
     @Override
     public void fill(DatesData datesData){
         super.fill(datesData);
@@ -101,13 +102,14 @@ public class DatesForm extends Form<DatesData> {
         return Double.parseDouble(String.valueOf(handleTrack.getSize().width)) / 100.0;
     }
 
-    public void moveHandleToPosition(Link handle, int position) {
+    private void moveHandleToPosition(Link handle, int position) {
 
         int extraOffset = -2; //need because handles aren't accurately determined
         Double offset = (position - Integer.valueOf(handle.getValue())) * getStep();
         handle.dragAndDropBy((int) Math.round(offset) + extraOffset, 0);
     }
 
+    @Step("Set slider position")
     public void setHandlesPosition(int leftPos, int rightPos) {
         if (rightPos < leftPos)
             return;
@@ -125,11 +127,13 @@ public class DatesForm extends Form<DatesData> {
         return new Integer(handle.getText());
     }
 
+    @Step("Check slider position")
     public void checkHandlesPosition(int leftPos, int rightPos) {
         assertEquals(handles.get(0).getValue(), Integer.toString(leftPos));
         assertEquals(handles.get(1).getValue(), Integer.toString(rightPos));
     }
 
+    @Step("Check that all fields contains all needed data")
     public void checkAll(DatesData datesData, ResultSection resultSection) {
         Assert.contains(resultSection.firstName.getText(), datesData.firstName);
         Assert.contains(resultSection.lastName.getText(), datesData.lastName);
@@ -142,6 +146,7 @@ public class DatesForm extends Form<DatesData> {
         Assert.contains(resultSection.slider.getText(), String.valueOf(datesData.range2.to));
     }
 
+    @Step("Check that only optional fields contains all needed data")
     public void checkOptional(DatesData datesData, ResultSection resultSection) {
         Assert.contains(resultSection.description.getText(), datesData.description);
         Assert.contains(resultSection.time.getText(), datesData.time);
@@ -149,6 +154,7 @@ public class DatesForm extends Form<DatesData> {
                 range1.get(0).getText().isEmpty() && range1.get(1).getText().isEmpty());*/
     }
 
+    @Step("Check that only mandatory fields contains all needed data")
     public void checkMandatory(DatesData datesData, ResultSection resultSection) {
         Assert.contains(resultSection.firstName.getText(), datesData.firstName);
         Assert.contains(resultSection.lastName.getText(), datesData.lastName);
@@ -157,6 +163,7 @@ public class DatesForm extends Form<DatesData> {
         Assert.assertTrue(description.getText().isEmpty() && date.getText().isEmpty());
     }
 
+    @Step("Check that all fields are empty")
     public void checkNothing() {
         Assert.assertTrue(firstName.getText().isEmpty() && lastName.getText().isEmpty() && description.getText().isEmpty() &&
                 date.getText().isEmpty() &&

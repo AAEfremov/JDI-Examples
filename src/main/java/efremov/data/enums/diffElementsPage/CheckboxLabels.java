@@ -8,7 +8,9 @@ public enum CheckboxLabels {
     WATER("Water"),
     EARTH("Earth"),
     WIND("Wind"),
-    FIRE("Fire");
+    FIRE("Fire"),
+    TRUE("true"),
+    FALSE("false");
 
     private String label;
 
@@ -22,11 +24,11 @@ public enum CheckboxLabels {
     }
 
     public String getTrueStatus() {
-        return "true";
+        return TRUE.getLabel();
     }
 
     public String getFalseStatus() {
-        return "false";
+        return FALSE.getLabel();
     }
 
 }

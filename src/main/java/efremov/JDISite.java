@@ -43,12 +43,11 @@ public class JDISite extends WebSite{
 
 
 
-    @Step("Login to the site")
+    @Step("Login to the account")
     public static void login() {
         User user = new User();
         profilePhoto.click();
         loginForm.loginAs(user);
-        Assert.assertEquals(loginForm.userName.getText(), user.userName);
     }
 
     /*public static void checkLogs() {
@@ -56,6 +55,7 @@ public class JDISite extends WebSite{
     }*/
 
 
+    @Step("Check Index Page interface")
     public static void checkIndexPageInterface() {
 
         for(Image pic : indexPage.pictures) {
@@ -72,6 +72,7 @@ public class JDISite extends WebSite{
 
     }
 
+    @Step("Check Different Elements Page interface")
     public static void checkDiffElemPageInterface() {
 
         for(String checkboxLabel : diffElementsPage.checkboxes.getValues()) {
