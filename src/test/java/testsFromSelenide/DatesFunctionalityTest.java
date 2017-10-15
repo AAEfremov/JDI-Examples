@@ -1,9 +1,8 @@
-package testsFromSelenide.Task3;
+package testsFromSelenide;
 
 import initialization.SimpleTestsInit;
 import efremov.data.DataProviders;
 import org.testng.annotations.BeforeClass;
-import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import static com.epam.jdi.uitests.core.interfaces.complex.interfaces.CheckPageTypes.CONTAINS;
@@ -14,7 +13,7 @@ import static efremov.data.enums.headerAndLeftSection.HeaderMenuElements.SERVICE
 public class DatesFunctionalityTest extends SimpleTestsInit {
 
 
-    @BeforeClass
+    @BeforeClass(alwaysRun = true)
     public void openPage() {
         indexPage.checkTitleType = CONTAINS;
         indexPage.shouldBeOpened();

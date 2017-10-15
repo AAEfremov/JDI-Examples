@@ -1,18 +1,14 @@
 <?xml version="1.0" encoding="WINDOWS-1251"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Suite2" parallel="methods" verbose="1">
-    <test name="Regression" >
+<suite name="Suite1" parallel="classes" verbose="1">
+    <test name="Nopackage" >
         <groups>
             <run>
                 <include name="regression"/>
             </run>
         </groups>
-        <classes>
-            <class name="testsFromSelenide.Task1.LoginAndFillContactFormTest"/>
-            <class name="testsFromSelenide.Task2.SmokeRegressionTests"/>
-            <class name="testsFromSelenide.Task2.RegressionTests"/>
-            <class name="testsFromSelenide.Task3.DifferentElementsFunctionalityTest"/>
-            <class name="testsFromSelenide.Task3.DatesFunctionalityTest"/>
-        </classes>
+        <packages>
+            <package name="testsFromSelenide"/>
+        </packages>
     </test>
 </suite>

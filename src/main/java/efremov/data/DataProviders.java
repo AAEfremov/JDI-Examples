@@ -6,18 +6,36 @@ import efremov.entities.User;
 import org.testng.annotations.DataProvider;
 
 import static efremov.data.enums.Numbers.*;
+import static efremov.data.enums.PageTitles.*;
 import static efremov.data.enums.contactFormPage.ContactFormData.*;
 import static efremov.data.enums.datesPage.DatesInfo.*;
 import static efremov.data.enums.datesPage.StatusesForFields.*;
 import static efremov.data.enums.diffElementsPage.CheckboxLabels.*;
 import static efremov.data.enums.diffElementsPage.ColorsOptions.*;
 import static efremov.data.enums.diffElementsPage.RadioLabels.*;
+import static efremov.data.enums.headerAndLeftSection.HeaderMenuElements.*;
 import static efremov.data.enums.indexPage.UsersCredentials.*;
 
 public class DataProviders {
 
+
+
+    @DataProvider(name = "pages", parallel = true)
+    public Object[][] pages() {
+        return new Object[][]{
+                {CONTACT_FORM_PAGE.getPageTitle(), CONTACT_FORM},
+                {SUPPORT_PAGE.getPageTitle(), SERVICE, SUPPORT},
+                {DATES_PAGE.getPageTitle(), SERVICE, DATES},
+                {COMPLEX_TABLE_PAGE.getPageTitle(), SERVICE, COMPLEX_TABLE},
+                {SIMPLE_TABLE_PAGE.getPageTitle(), SERVICE, SIMPLE_TABLE},
+                {TABLE_WITH_PAGES_PAGE.getPageTitle(), SERVICE, TABLE_WITH_PAGES},
+                {DIFFERENT_ELEMENTS_PAGE.getPageTitle(), SERVICE, DIFFERENT_ELEMENTS},
+                {METALS_AND_COLORS_PAGE.getPageTitle(), METALS_AND_COLORS}
+        };
+    }
+
     @DataProvider(name = "testLoginData", parallel = true)
-    public static Object[][] testLoginData() {
+    public Object[][] testLoginData() {
         return new Object[][]{
                 {new User(USER1.getName(), USER1.getPassword(), USER1.getStatus())},
                 {new User(USER2.getName(), USER2.getPassword(), USER2.getStatus())},
@@ -34,7 +52,7 @@ public class DataProviders {
     }*/
 
     @DataProvider(name = "testDatesData", parallel = true)
-    public static Object[][] testDatesData() {
+    public Object[][] testDatesData() {
         return new Object[][]{
                 {new DatesData(DATA1.getFirstName(),DATA1.getLastName(), DATA1.getDescription(), DATA1.getDate(),
                         DATA1.getTime(),DATA1.getRange1(), DATA1.getRange2()), ALL.getStatus(), true},
@@ -74,8 +92,8 @@ public class DataProviders {
     @DataProvider(name = "contactFormProvider", parallel = true)
     public Object[][] contactFormData(){
         return new Object[][]{
-                {new ContactData(FIRST_NAME.getValue(), LAST_NAME.getValue(), DESCRIPTION.getValue(), ONE.getValue(), FOUR.getValue())},
-                {new ContactData(FIRST_NAME.getValue(), LAST_NAME.getValue(), DESCRIPTION.getValue(), THREE.getValue(), "")},
+                {new ContactData(FIRST_NAME.getValue(), LAST_NAME.getValue(), DESCRIPTION.getValue(), THREE.getValue(), FOUR.getValue())},
+                {new ContactData(FIRST_NAME.getValue(), LAST_NAME.getValue(), DESCRIPTION.getValue(), FIVE.getValue(), "")},
                 {new ContactData(FIRST_NAME.getValue(), LAST_NAME.getValue(), "", "", SIX.getValue())},
                 {new ContactData(FIRST_NAME.getValue(), LAST_NAME.getValue(), DESCRIPTION.getValue(), "", "")}
         };

@@ -1,8 +1,6 @@
-package testsFromSelenide.Task3;
+package testsFromSelenide;
 
 import initialization.SimpleTestsInit;
-import com.epam.web.matcher.testng.Assert;
-import efremov.entities.User;
 import org.testng.annotations.Test;
 
 import java.util.List;
@@ -39,14 +37,15 @@ public class DifferentElementsFunctionalityTest extends SimpleTestsInit {
         diffElementsPage.selectAndCheckRadio(SELEN);
         diffElementsPage.selectAndCheckColor(YELLOW);
 
-        diffElementsPage.checkLogs();
+        List<String> lst = logsSection.logs.getOptions();
+        diffElementsPage.checkLogs(lst, 0);
 
         diffElementsPage.unselectAndCheckCheckbox(WATER);
         diffElementsPage.unselectAndCheckCheckbox(WIND);
 
-        List<String> lst = logsSection.logs.getOptions();
+        lst = logsSection.logs.getOptions();
 
-        diffElementsPage.checkLogs(lst);
+        diffElementsPage.checkLogs(lst, 1);
 
     }
 }

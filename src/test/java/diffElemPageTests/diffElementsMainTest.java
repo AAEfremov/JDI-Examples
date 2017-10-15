@@ -12,7 +12,7 @@ import static efremov.JDISite.*;
 
 public class diffElementsMainTest extends SimpleTestsInit {
 
-    @BeforeMethod
+    @BeforeMethod(alwaysRun = true)
     public void openNeedPage() {
         indexPage.open();
         login();

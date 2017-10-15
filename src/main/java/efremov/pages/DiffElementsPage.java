@@ -7,16 +7,16 @@ import com.epam.jdi.uitests.web.selenium.elements.complex.Dropdown;
 import com.epam.jdi.uitests.web.selenium.elements.complex.RadioButtons;
 import com.epam.jdi.uitests.web.selenium.elements.composite.WebPage;
 import com.epam.jdi.uitests.web.selenium.elements.pageobjects.annotations.JPage;
-import com.epam.web.matcher.testng.Assert;
 import efremov.data.enums.diffElementsPage.CheckboxLabels;
 import efremov.data.enums.diffElementsPage.ColorsOptions;
 import efremov.data.enums.diffElementsPage.RadioLabels;
+import efremov.sections.LogsSection;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.FindBy;
+import org.testng.Assert;
 
 import java.util.List;
 
-import static efremov.JDISite.logsSection;
 import static efremov.data.enums.diffElementsPage.CheckboxLabels.WATER;
 import static efremov.data.enums.diffElementsPage.CheckboxLabels.WIND;
 import static efremov.data.enums.diffElementsPage.ColorsOptions.YELLOW;
@@ -43,38 +43,41 @@ public class DiffElementsPage extends WebPage {
     public void selectAndCheckCheckbox(CheckboxLabels label) {
 
         checkboxes.check(label.getLabel());
-        Assert.isTrue(checkboxes.getWebElement(label.getLabel()).findElement(new By.ByCssSelector("input")).isSelected());
+        Assert.assertTrue(checkboxes.getWebElement(label.getLabel()).findElement(new By.ByCssSelector("input")).isSelected());
     }
 
     public void unselectAndCheckCheckbox(CheckboxLabels label) {
 
         checkboxes.check(label.getLabel());
-        Assert.isFalse(checkboxes.getWebElement(label.getLabel()).findElement(new By.ByCssSelector("input")).isSelected());
+        Assert.assertFalse(checkboxes.getWebElement(label.getLabel()).findElement(new By.ByCssSelector("input")).isSelected());
     }
 
     public void selectAndCheckRadio(RadioLabels label) {
 
         radios.select(label.getLabel());
-        Assert.isTrue(radios.getWebElement(label.getLabel()).findElement(new By.ByCssSelector("input")).isSelected());
+        Assert.assertTrue(radios.getWebElement(label.getLabel()).findElement(new By.ByCssSelector("input")).isSelected());
     }
 
     public void selectAndCheckColor(ColorsOptions color) {
         colorsDropdownSelector.click();
         colorsDropdownSelector.select(color.getColor());
-        Assert.isTrue(colorsDropdownSelector.isSelected(color.getColor()));
+        Assert.assertTrue(colorsDropdownSelector.isSelected(color.getColor()));
     }
 
-    public void checkLogs() {
-
-        Assert.assertTrue(logsSection.logs.get(0).getValue().contains(YELLOW.getColorTag()) && logsSection.logs.get(0).getValue().contains(YELLOW.getColor()));
-        Assert.assertTrue(logsSection.logs.get(1).getValue().contains(SELEN.getMetalTag()) && logsSection.logs.get(1).getValue().contains(SELEN.getLabel()));
-        Assert.assertTrue(logsSection.logs.get(2).getValue().contains(WIND.getLabel())&& logsSection.logs.get(2).getValue().contains(WIND.getTrueStatus()));
-        Assert.assertTrue(logsSection.logs.get(3).getValue().contains(WATER.getLabel())&& logsSection.logs.get(3).getValue().contains(WATER.getTrueStatus()));
-
-    }
-
-    public void checkLogs(List<String> lst) {
-        Assert.assertTrue(lst.get(0).contains(WIND.getLabel())&&lst.get(0).contains(WIND.getFalseStatus()));
-        Assert.assertTrue(lst.get(1).contains(WATER.getLabel())&&lst.get(1).contains(WATER.getFalseStatus()));
+    public void checkLogs(List<String> lst, int type) {
+        switch (type) {
+            case 0:
+                Assert.assertTrue(lst.get(0).contains(YELLOW.getColorTag()) && lst.get(0).contains(YELLOW.getColor()));
+                Assert.assertTrue(lst.get(1).contains(SELEN.getMetalTag()) && lst.get(1).contains(SELEN.getLabel()));
+                Assert.assertTrue(lst.get(2).contains(WIND.getLabel())&& lst.get(2).contains(WIND.getTrueStatus()));
+                Assert.assertTrue(lst.get(3).contains(WATER.getLabel())&& lst.get(3).contains(WATER.getTrueStatus()));
+                break;
+            case 1:
+                Assert.assertTrue(lst.get(0).contains(WIND.getLabel())&&lst.get(0).contains(WIND.getFalseStatus()));
+                Assert.assertTrue(lst.get(1).contains(WATER.getLabel())&&lst.get(1).contains(WATER.getFalseStatus()));
+                break;
+            default:
+                break;
+        }
     }
 }

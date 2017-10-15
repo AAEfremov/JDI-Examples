@@ -15,6 +15,7 @@ public class LoginTest extends SimpleTestsInit {
 
         indexPage.checkTitleType = CONTAINS;
         indexPage.shouldBeOpened();
+        profilePhoto.click();
         loginForm.loginAs(user);
 
         if(user.status) {

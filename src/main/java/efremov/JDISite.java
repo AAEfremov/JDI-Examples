@@ -23,6 +23,11 @@ public class JDISite extends WebSite{
     public static ContactFormPage contactFormPage;
     public static DatesPage datesPage;
     public static DiffElementsPage diffElementsPage;
+    public static SupportPage supportPage;
+    public static ComplexTablePage complexTablePage;
+    public static SimpleTablePage simpleTablePage;
+    public static TableWithPagesPage tableWithPagesPage;
+    public static MetalAndColorsPage metalAndColorsPage;
 
     public static Header header;
     public static LeftSection leftSection;

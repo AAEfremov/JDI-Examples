@@ -12,7 +12,8 @@ import efremov.entities.ContactData;
 import efremov.sections.ResultSection;
 import org.openqa.selenium.support.FindBy;
 
-//import static efremov.JDISite.resultSection;
+import static efremov.JDISite.resultSection;
+import static org.testng.Assert.*;
 
 public class ContactForm extends Form<ContactData> {
 
@@ -61,12 +62,12 @@ public class ContactForm extends Form<ContactData> {
     }
 
 
-    public void checkResults(ContactData contactData, int sum, ResultSection resultSection) {
-        Assert.isTrue(resultSection.summary.getText().contains(String.valueOf(sum)));
-        Assert.isTrue(resultSection.firstName.getText().contains(String.valueOf(contactData.firstName)));
-        Assert.isTrue(resultSection.lastName.getText().contains(String.valueOf(contactData.lastName)));
+    public void checkResults(ContactData contactData, int sum) {
+        assertTrue(resultSection.summary.getText().contains(String.valueOf(sum)));
+        assertTrue(resultSection.firstName.getText().contains(String.valueOf(contactData.firstName)));
+        assertTrue(resultSection.lastName.getText().contains(String.valueOf(contactData.lastName)));
         if (!contactData.description.isEmpty()) {
-            Assert.isTrue(resultSection.description.getText().contains(String.valueOf(contactData.description)));
+            assertTrue(resultSection.description.getText().contains(String.valueOf(contactData.description)));
         }
     }
 }

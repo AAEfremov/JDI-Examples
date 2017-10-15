@@ -24,7 +24,7 @@ public class LoginForm extends Form<User> {
     @FindBy(css = "[type=submit]")
     public Button enter;
 
-    @FindBy(css = ".loginTests-txt")
+    @FindBy(css = ".login-txt")
     public Text loginFailed;
 
     public void checkUserName(User user) {

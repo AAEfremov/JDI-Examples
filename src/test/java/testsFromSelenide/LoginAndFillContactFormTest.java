@@ -1,10 +1,9 @@
-package testsFromSelenide.Task1;
+package testsFromSelenide;
 
 
 import efremov.entities.ContactData;
-import efremov.entities.User;
 import initialization.SimpleTestsInit;
-import com.epam.web.matcher.testng.Assert;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import static com.epam.jdi.uitests.core.interfaces.complex.interfaces.CheckPageTypes.CONTAINS;

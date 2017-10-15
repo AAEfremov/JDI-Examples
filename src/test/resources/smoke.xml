@@ -1,17 +1,16 @@
 <?xml version="1.0" encoding="WINDOWS-1251"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Suite1" parallel="methods" verbose="1">
-    <test name="smoke" >
+<suite name="Suite1"  verbose="1" parallel="classes">
+    <test name="Nopackage">
         <groups>
             <run>
                 <include name="smoke"/>
             </run>
         </groups>
         <classes>
-            <class name="testsFromSelenide.Task2.SmokeRegressionTests"/>
-            <class name="testsFromSelenide.Task2.SmokeTests"/>
+            <class name="smokeRegressionTests.IndexPageExistenceTest"/>
+            <class name="smokeTests.PagesExistenceTest"/>
             <class name="loginTests.LoginTest"/>
-            <class name="contactPageTests.contactFormMainTest"/>
         </classes>
     </test>
 </suite>
