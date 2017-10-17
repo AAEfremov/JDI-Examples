@@ -31,17 +31,10 @@ public class JDISite extends WebSite{
     public static LogsSection logsSection;
     public static ResultSection resultSection;
     public static Paginator paginator;
-
     public static LoginForm loginForm;
-    //public static ContactForm contactForm;
-
 
     @FindBy(css = ".fa-user")
     public static Label profilePhoto;
-
-    //static private User user = new User();
-
-
 
     @Step("Login to the account")
     public static void login() {
@@ -50,14 +43,8 @@ public class JDISite extends WebSite{
         loginForm.loginAs(user);
     }
 
-    /*public static void checkLogs() {
-        Assert.assertTrue(logsSection.checkLogs());
-    }*/
-
-
     @Step("Check Index Page interface")
     public static void checkIndexPageInterface() {
-
         for(Image pic : indexPage.pictures) {
             Assert.isTrue(pic.isDisplayed());
         }
@@ -69,16 +56,13 @@ public class JDISite extends WebSite{
         for(Label text : indexPage.textsAbovePictures) {
             Assert.isTrue(text.isDisplayed());
         }
-
     }
 
     @Step("Check Different Elements Page interface")
     public static void checkDiffElemPageInterface() {
-
         for(String checkboxLabel : diffElementsPage.checkboxes.getValues()) {
             Assert.isTrue(diffElementsPage.checkboxes.isDisplayed(checkboxLabel));
         }
-
         diffElementsPage.radios.isDisplayed();
         diffElementsPage.colorsDropdownSelector.isDisplayed();
         diffElementsPage.defaultButton.isDisplayed();

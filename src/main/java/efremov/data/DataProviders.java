@@ -20,6 +20,7 @@ public class DataProviders {
 
 
 
+    //Testing page existence functionality
     @DataProvider(name = "pages", parallel = true)
     public Object[][] pages() {
         return new Object[][]{
@@ -34,6 +35,7 @@ public class DataProviders {
         };
     }
 
+    //Testing Login functionality
     @DataProvider(name = "testLoginData", parallel = true)
     public Object[][] testLoginData() {
         return new Object[][]{
@@ -44,13 +46,7 @@ public class DataProviders {
         };
     }
 
-    /*@DataProvider(firstName = "fillUserData")
-    public static Object[][] fillUserData() {
-        return new Object[][]{
-                {new User()}
-        };
-    }*/
-
+    //Testing Dates Page functionality
     @DataProvider(name = "testDatesData", parallel = true)
     public Object[][] testDatesData() {
         return new Object[][]{
@@ -79,6 +75,7 @@ public class DataProviders {
         };
     }
 
+    //Testing Different Elements Page functionality
     @DataProvider(name = "diffElementsProvider", parallel = true)
     public Object[][] diffElementsData(){
         return new Object[][]{
@@ -89,6 +86,7 @@ public class DataProviders {
         };
     }
 
+    //Testing Contact Form Page functionality
     @DataProvider(name = "contactFormProvider", parallel = true)
     public Object[][] contactFormData(){
         return new Object[][]{
@@ -99,6 +97,7 @@ public class DataProviders {
         };
     }
 
+    //Testing Paginator functionality
     @DataProvider(name = "pagination", parallel = true)
     public Object[][] pagination() {
         return new Object[][]{
